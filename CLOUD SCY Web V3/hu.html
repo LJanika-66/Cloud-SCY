@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOUD SCY</title>
+    <link rel="stylesheet" href="Settings.css">
+</head>
+<body id="mainbody" class="fade-out">
+
+
+
+
+<audio id="backgroundMusic" autoplay loop>
+    <source id="musicSource" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+
+<div id="felhotarto"></div>
+
+
+
+    <div class="fejlec"> 
+        
+        <script>
+            window.addEventListener('load', function() {
+              const cloudContainer = document.getElementById('felhotarto');
+            
+              function createCloud() {
+                    const cloud = document.createElement('div');
+                    cloud.className = 'cloud';
+                    cloud.style.bottom = '-40px'; // Fixed height
+                    cloudContainer.appendChild(cloud);
+
+                    // Remove cloud after animation ends to prevent memory leaks
+                    cloud.addEventListener('animationend', () => {
+                    cloudContainer.removeChild(cloud);
+                    createCloud(); // Create a new cloud when one finishes
+                    });
+                }
+
+                // Generate a cloud every 5 seconds
+                setInterval(createCloud, 4000);
+            
+              // Fade-in effect
+              document.body.classList.remove('fade-out');
+              document.body.classList.add('fade-in');
+            });
+            </script>
+
+        <table class="elso"> <!-- Ezt egy nav-val meglehetett volna oldani. -->
+            <tr>
+                <td>
+                    <img id="DayNight" alt="Banner" style="width: 100%;">
+
+                    <script>
+                        function updateImage() {
+                            let ora = new Date().getHours();
+                            let imageElement = document.getElementById("DayNight");
+                            let body = document.body;
+                            let fejlec = document.querySelector(".fejlec")
+                            let musicSource = document.getElementById("musicSource");
+
+
+
+                            let dayMusic = ["Musics/Day1.mp3", "Musics/Day2.mp3"];
+                            let nightMusic = ["Musics/Night1.mp3", "Musics/Night2.mp3", "Musics/Night3.mp3", "Musics/Night4.mp3"]
+
+                            imageElement.style.opacity = "0";
+                            body.style.opacity = "0"
+                            setTimeout(() => {
+                            if (ora > 6 && ora < 18) {
+                                imageElement.src = "Photos/Nappali.png";
+                                body.style.backgroundColor = "#73a2dc";
+                                fejlec.style.backgroundColor = "#9fc4f1";
+                                let randomDayMusic = dayMusic[Math.floor(Math.random() * dayMusic.length)];
+                                musicSource.src = randomDayMusic;
+                                backgroundMusic.volume = 0.2;}
+
+
+                            else{
+                                imageElement.src = "Photos/Esti.png";
+                                body.style.backgroundColor = "#2e0965";
+                                fejlec.style.backgroundColor = "#ab9eee";
+                                let randomNightMusic = nightMusic[Math.floor(Math.random() * nightMusic.length)];
+                                musicSource.src = randomNightMusic;
+                                backgroundMusic.volume = 0.2;}
+                            
+                            backgroundMusic.load();
+                            backgroundMusic.play();
+
+                            imageElement.style.opacity = "1"
+                            body.style.opacity = "1"
+                            Nastuki.style.opacity = "1"
+                            Yuri.style.opacity = "1"   
+                            }, 1000);
+                        }
+
+                        document.getElementById('backgroundMusic').addEventListener('ended', function() {
+                        this.currentTime = 0;
+                        this.play();
+                    });
+                        
+
+                        updateImage();
+                    </script>
+
+
+                    <table class="masodik">
+                        <tr class="harmadik", id="harmadik">
+                            <td class="negyedik"><a href="hu.html">Magyar</a></td>
+                            <td class="negyedik"><a href="en.html">English</a></td>
+                            <td class="negyedik"><a href="de.html">Deutsch</a></td>
+                            <td class="negyedik"><a href="es.html">Español</a></td>
+                            <td class="negyedik"><a href="jp.html">日本語</a></td>
+                            <td class="negyedik"><a href="zh.html">中文</a></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    
+
+                <div class="test">
+                    <h1>Precíz és megbízható időjárás-jelentés - Bárhol, bármikor</h1>
+                    <p id="elso">Üdvözlünk a CLOUD SCY-nál, ahol a legfrissebb és legpontosabb időjárási információkat találod meg a világ bármely pontjáról. Legyen szó a napi előrejelzésekről vagy speciális meteorológiai adatok elemzéséről, alkalmazásunk minden szükséges információt biztosít! <p>
+                        
+                    <h2 class="lista">Főbb funkciók:</h2>
+                    <ul class="lista">
+                        <li><strong>Globális időjárás-adatok</strong> - Több ezer város aktuális és jövőbeli időjárása egyetlen kattintással.</li>
+                        <li><strong>Részletes Előrejelzések</strong> - Hőmérséklet, csapadék, széirány, páratartalom és egyéb meteorológiai adatok</li>
+                        <li><strong>Világos és Sötét mód</strong> - Válaszd a számodra kényelmes megjelenést.</li>
+                        <li><strong>felhasználóbarát súgó</strong> - Ha elakadnál, részletes segítséget biztosítunk minden funkcióhoz.</li>
+                        <li><strong>Hibajelentés</strong> - Visszajelzéseiddel hozzájárulhatsz az alkalmazás folyamatos fejlesztéséhez.</li>
+                    </ul>
+                    <img src="Photos/Borakka.png" alt="Borakku" id="Borakku">
+                    <h2 class="lista">A Segítőid az Időjárásban</h2>
+                    <p id="masodik" class="lista">Ismerd meg Shinkō Borakkut, Tomoko Usagit illetve Awai Hiyorit, az alkalmazásunk kedves, de félénk kabalájait! Ők segítenek eligazodni az időjárási adatok között, tippeket adnak és barátságos módon vezetnek végig a funkciókon.</p>
+
+
+                    <p id="masodik", class="lista">Légy mindig naprakész, tervezz előre és hozd ki a legtöbbet minden napból a Cloud SCY segítségével!</p>
+                    <p class="lista">Kattints a képre az előzetes megtekintéséhez!</p>
+
+
+                    <a href="https://www.youtube.com/watch?v=mAIQcMhzSo8" target="_blank" style="padding: 3%;">
+                        <img src="Photos/You.png" alt="Video link" id="video_link">
+                    </a>
+                    
+                    <br>
+                    <br>
+                    <br>
+
+                    
+                    <div class="character-container">
+                        <div class="character">
+                            <img src="Photos/Character1.png" alt="Character 1" class="normal">
+                            <img src="Photos/Character1-1.png" alt="Character 1 Hover" class="hover">
+                        </div>
+                        <div class="character">
+                            <img src="Photos/Character2.png" alt="Character 2" class="normal">
+                            <img src="Photos/Character2-1.png" alt="Character 2 Hover" class="hover">
+                        </div>
+                        <div class="character">
+                            <img src="Photos/Character3.png" alt="Character 3" class="normal">
+                            <img src="Photos/Character3-1.png" alt="Character 3 Hover" class="hover">
+                        </div>
+                    </div>
+
+
+<br><br>
+                    <p class="lista">A felhasználó számítógépének az alábbi követelményeknek kell megfeleljen:</p>
+                    <ul class="lista">
+                        <h2>Minimum gépigény:</h2>
+                        <li>CPU: 1.8GHz Dual-Core CPU, Intel Core i5  vagy AMD Ryzen 5</li>
+                        <li>RAM: 4 GB</li>
+                        <li>GPU: Dedikált grafikus kártya (4 GB)</li>
+                        <li>SSD: 64 GB </li>
+                        <li>OS: Windows 10</li>
+
+                        <h2>Ajánlott gépigény:</h2>
+                        <li>CPU: 2.5GHz Quad-Core CPU, Intel Core i7 vagy AMD Ryzen 7</li>
+                        <li>RAM: 8 GB vagy több</li>
+                        <li>GPU: Dedikált grafikus kártya, NVIDIA GeForce GTX 1650 vagy jobb</li>
+                        <li>SSD: 128 GB vagy nagyobb</li>
+                        <li>OS: Windows 11</li>
+                    </ul>
+
+
+
+
+                    </table>
+
+                    <p id="easter_egg">4oCeU3V0dG9nw6Fzb2sgYXogw6l0ZXJlbuKApiBCb3Jha2t1dCwgVXNhZ2l0IMOpcyBIaXlvcml0IGZvZ3ZhIHRhcnRqw6FrLiBFZ3kgc8O2dMOpdCBzem9iw6FiYW4sIHZpYnLDoWzDsyBr w6lwZXJuecWRayBlbMWRdHQga8OpbnlzemVyw610aWsgxZFrZXQsIGhvZ3kgaWTFkWrDoXLDoXMtamVsZW50w6lzZWtldCBzdXR0b2dqYW5hayBheiDDvHJlc3PDqWdiZS4gTsOpaGEgaGFsbGFuaSBsZWhldCwgYWhvZ3kga2FwYXJuaSBwcsOzYsOhbG5hayBhIGtpasOhcmF0IGZlbMOp4oCmIERlIGEgamVsZW50w6lzZWsgc29zZW0gbWFyYWRuYWsgZWwu4oCd</p>
+               
+
+                    <h1 style="color: rgb(129, 75, 253); text-shadow: 5px 5px 8px;font-size: 50px; ">Ünnepelj velünk – Megérkezett a Cloud SCY 1.1!</h1>
+
+                    <p style="padding-left: 3%;margin:auto; text-align: center; padding-right: 3%;">Hatalmas örömmel és büszkeséggel jelentjük be, hogy hosszú hónapok munkájának gyümölcseként megszületett a <strong>Cloud SCY 1.1</strong>! Ez a frissítés nem csupán egy újabb verzió – <i>ez egy új korszak kezdete</i> az időjárás-alkalmazások világában. Minden részletében a közösségünket és felhasználóink igényeit tartottuk szem előtt, és most végre itt van, hogy még élvezetesebbé és személyesebbé tegye a meteorológiai élményt! </p>
+                    
+                    <p style="padding-left: 3%;margin:auto; padding-right: 3%;padding-top: 3%; font-size: 40px;"> <strong>Újdonságok, amiket imádni fogsz:</strong></p>
+                    
+                    <ul style="padding-left: 3%;margin:auto; padding-right: 3%;">
+                    <li class="lista"><strong>Kedvencek közötti léptetés</strong> – Gyorsan válthatsz a számodra fontos helyszínek között.</li>
+                    
+                    <li class="lista"><strong>Előzmények törlése</strong> – Teljes kontroll az időjárási kereséseid felett.</li>
+                    
+                    <li class="lista"> <strong>Felhők be- és kikapcsolása</strong> – Tedd személyre a megjelenést!</li>
+                    
+                    <li class="lista"> <strong>Optimalizáció</strong> – Még gyorsabb, még simább élmény.</li>
+                    
+                    <li class="lista"> <strong>Dinamikus karakter-arckifejezések</strong> – Kabalafiguráink most még kifejezőbbek!</li>
+                    
+                    <li class="lista"> <strong>Interaktív dialógusok</strong> – Több, mint információ: valódi társalgás.</li>
+                    
+                    <li class="lista"> <strong>Bővíthető zenelejátszási lista</strong> – Hozd létre saját hangulatod az időjáráshoz illő zenékkel.</li>
+                    
+                    <li class="lista"><strong> Hangok szabályozása</strong> – Te döntöd el, mikor hallgatsz és mikor nem.</li>
+                    
+                    <li class="lista"><strong> Napnyugta és napfelkelte hozzáadása</strong> – Gyönyörködj a természet ritmusában.</li>
+                    
+                    <li class="lista"><strong>Dinamikus éghajlati tényező ikonok</strong> – Még vizuálisabb időjárás-élmény.</li> 
+                    </ul>
+                    <p style="padding-left: 3%;margin:auto; text-align: center; padding-right: 3%;padding-top: 3%;">Köszönet minden felhasználónknak, akik visszajelzéseikkel és támogatásukkal hozzájárultak ehhez a mérföldkőhöz.
+                    Ez a frissítés nektek készült. Merülj el a Cloud SCY világában – most még gazdagabb, színesebb és élőbb, mint valaha!
+                    </p>
+
+                    <p style="padding-left: 3%;margin:auto; text-align: center; padding-right: 3%;padding-top: 3%;">Frissíts most, és tapasztald meg a különbséget!</p>
+                    <br>                    
+                    <a href="Installer.exe" download class="download-button2">Letöltés</a>
+                   
+
+                    <br>
+                    <br>
+                    <br>
+                
+                </div>
+        
+    </div>
+    
+<img src="Photos/Yuri.png" alt="Yuri" id="Yuri">
+<img src="Photos/Natsuki.png" alt="Nastuki" id="Natsuki">
+<img src="Photos/Cloud.png" alt="Logo" id="Logo">
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=ikt.weather@gmail.com&su=Hiba jelentés!&body=" target="_blank" style="color: rgb(255, 159, 159); margin-left: 48%;z-index: 0; text-shadow:5px 5px 10px; font-size: 30px; width:100%", id="Yuri">
+    <strong>Itt tudsz kapcsolatba lépni velünk, ha valami probléma adódna!</strong>
+    </a>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

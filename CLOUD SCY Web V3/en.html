@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOUD SCY</title>
+    <link rel="stylesheet" href="Settings.css">
+</head>
+<body id="mainbody" class="fade-out">
+
+
+
+
+<audio id="backgroundMusic" autoplay loop>
+    <source id="musicSource" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+
+<div id="felhotarto"></div>
+
+
+
+    <div class="fejlec">
+        
+        <script>
+            window.addEventListener('load', function() {
+              const cloudContainer = document.getElementById('felhotarto');
+            
+              function createCloud() {
+                    const cloud = document.createElement('div');
+                    cloud.className = 'cloud';
+                    cloud.style.bottom = '-40px'; // Fixed height
+                    cloudContainer.appendChild(cloud);
+
+                    // Remove cloud after animation ends to prevent memory leaks
+                    cloud.addEventListener('animationend', () => {
+                    cloudContainer.removeChild(cloud);
+                    createCloud(); // Create a new cloud when one finishes
+                    });
+                }
+
+                // Generate a cloud every 5 seconds
+                setInterval(createCloud, 4000);
+            
+              // Fade-in effect
+              document.body.classList.remove('fade-out');
+              document.body.classList.add('fade-in');
+            });
+            </script>
+
+        <table class="elso">
+            <tr>
+                <td>
+                    <img id="DayNight" alt="Banner" style="width: 100%;">
+
+                    <script>
+                        function updateImage() {
+                            let ora = new Date().getHours();
+                            let imageElement = document.getElementById("DayNight");
+                            let body = document.body;
+                            let fejlec = document.querySelector(".fejlec")
+                            let musicSource = document.getElementById("musicSource");
+
+
+
+                            let dayMusic = ["Musics/Day1.mp3", "Musics/Day2.mp3"];
+                            let nightMusic = ["Musics/Night1.mp3", "Musics/Night2.mp3", "Musics/Night3.mp3", "Musics/Night4.mp3"]
+
+                            imageElement.style.opacity = "0";
+                            body.style.opacity = "0"
+                            setTimeout(() => {
+                            if (ora > 6 && ora < 18) {
+                                imageElement.src = "Photos/Nappali.png";
+                                body.style.backgroundColor = "#73a2dc";
+                                fejlec.style.backgroundColor = "#9fc4f1";
+                                let randomDayMusic = dayMusic[Math.floor(Math.random() * dayMusic.length)];
+                                musicSource.src = randomDayMusic;
+                                backgroundMusic.volume = 0.2;}
+
+
+                            else{
+                                imageElement.src = "Photos/Esti.png";
+                                body.style.backgroundColor = "#2e0965";
+                                fejlec.style.backgroundColor = "#ab9eee";
+                                let randomNightMusic = nightMusic[Math.floor(Math.random() * nightMusic.length)];
+                                musicSource.src = randomNightMusic;
+                                backgroundMusic.volume = 0.2;}
+                            
+                            backgroundMusic.load();
+                            backgroundMusic.play();
+
+                            imageElement.style.opacity = "1"
+                            body.style.opacity = "1"
+                            Nastuki.style.opacity = "1"
+                            Yuri.style.opacity = "1"   
+                            }, 1000);
+                        }
+
+                        document.getElementById('backgroundMusic').addEventListener('ended', function() {
+                        this.currentTime = 0;
+                        this.play();
+                    });
+                        
+
+                        updateImage();
+                    </script>
+
+
+                    <table class="masodik">
+                        <tr class="harmadik", id="harmadik">
+                            <td class="negyedik"><a href="hu.html">Magyar</a></td>
+                            <td class="negyedik"><a href="en.html">English</a></td>
+                            <td class="negyedik"><a href="de.html">Deutsch</a></td>
+                            <td class="negyedik"><a href="es.html">Español</a></td>
+                            <td class="negyedik"><a href="jp.html">日本語</a></td>
+                            <td class="negyedik"><a href="zh.html">中文</a></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    
+
+                <div class="test">
+                        <h1>Precise and Reliable Weather Forecast - Anywhere, Anytime</h1>
+                        <p id="elso">Welcome to CLOUD SCY, where you can find the latest and most accurate weather information from any corner of the world. Whether it’s daily forecasts or the analysis of special meteorological data, our app provides all the information you need!</p>
+                        
+                        <h2 class="lista">Main Features:</h2>
+                        <ul class="lista">
+                            <li><strong>Global Weather Data</strong> - Current and future weather for thousands of cities at the click of a button.</li>
+                            <li><strong>Detailed Forecasts</strong> - Temperature, precipitation, wind direction, humidity, and other meteorological data.</li>
+                            <li><strong>Light and Dark Modes</strong> - Choose the display mode that’s most comfortable for you.</li>
+                            <li><strong>User-friendly Help</strong> - If you get stuck, detailed assistance is available for every feature.</li>
+                            <li><strong>Error Reporting</strong> - With your feedback, you contribute to the continuous improvement of the app.</li>
+                        </ul>
+                        <img src="Photos/Borakka.png" alt="Borakku" id="Borakku">
+                        <h2 class="lista">Your Weather Helpers</h2>
+                        <p id="masodik" class="lista">Meet Borakku Shinkō, Usagi Tomoko, and Hiyori Awai, our app's friendly yet shy mascots! They will help you navigate through the weather data, give tips, and guide you through the features in a friendly way.</p>
+                        
+                        <p id="masodik" class="lista">Stay up to date, plan ahead, and make the most of every day with Cloud SCY!</p>
+                        <p class="lista">Click on the image to watch the trailler!</p>
+                    
+
+
+                    <a href="https://www.youtube.com/watch?v=mAIQcMhzSo8" target="_blank" style="padding: 3%;">
+                        <img src="Photos/You.png" alt="Video link" id="video_link">
+                    </a>
+                    
+                    <br>
+                    <br>
+                    <br>
+
+                    
+                    <div class="character-container">
+                        <div class="character">
+                            <img src="Photos/Character1.png" alt="Character 1" class="normal">
+                            <img src="Photos/Character1-1.png" alt="Character 1 Hover" class="hover">
+                        </div>
+                        <div class="character">
+                            <img src="Photos/Character2.png" alt="Character 2" class="normal">
+                            <img src="Photos/Character2-1.png" alt="Character 2 Hover" class="hover">
+                        </div>
+                        <div class="character">
+                            <img src="Photos/Character3.png" alt="Character 3" class="normal">
+                            <img src="Photos/Character3-1.png" alt="Character 3 Hover" class="hover">
+                        </div>
+                    </div>
+
+
+                    <br><br>
+                    <p class="lista">The user’s computer must meet the following requirements:</p>
+                    <ul class="lista">
+                        <h2>Minimum System Requirements:</h2>
+                        <li>CPU: 1.8GHz Dual-Core CPU, Intel Core i5 or AMD Ryzen 5</li>
+                        <li>RAM: 4 GB</li>
+                        <li>GPU: Dedicated graphics card (4 GB)</li>
+                        <li>SSD: 64 GB</li>
+                        <li>OS: Windows 10</li>
+
+                        <h2>Recommended System Requirements:</h2>
+                        <li>CPU: 2.5GHz Quad-Core CPU, Intel Core i7 or AMD Ryzen 7</li>
+                        <li>RAM: 8 GB or more</li>
+                        <li>GPU: Dedicated graphics card, NVIDIA GeForce GTX 1650 or better</li>
+                        <li>SSD: 128 GB or larger</li>
+                        <li>OS: Windows 11</li>
+                    </ul>
+
+
+                    <p id="easter_egg">4oCeU3V0dG9nw6Fzb2sgYXogw6l0ZXJlbuKApiBCb3Jha2t1dCwgVXNhZ2l0IMOpcyBIaXlvcml0IGZvZ3ZhIHRhcnRqw6FrLiBFZ3kgc8O2dMOpdCBzem9iw6FiYW4sIHZpYnLDoWzDsyBr w6lwZXJuecWRayBlbMWRdHQga8OpbnlzemVyw610aWsgxZFrZXQsIGhvZ3kgaWTFkWrDoXLDoXMtamVsZW50w6lzZWtldCBzdXR0b2dqYW5hayBheiDDvHJlc3PDqWdiZS4gTsOpaGEgaGFsbGFuaSBsZWhldCwgYWhvZ3kga2FwYXJuaSBwcsOzYsOhbG5hayBhIGtpasOhcmF0IGZlbMOp4oCmIERlIGEgamVsZW50w6lzZWsgc29zZW0gbWFyYWRuYWsgZWwu4oCd</p>
+                
+                    <h1 style="color: rgb(129, 75, 253); text-shadow: 5px 5px 8px;font-size: 50px;">Celebrate with us – Cloud SCY 1.1 has arrived!</h1>
+
+                    <p style="padding-left: 3%;margin:auto; text-align: center; padding-right: 3%;">
+                    It is with great joy and pride that we announce the release of <strong>Cloud SCY 1.1</strong>, the result of many months of dedicated work! This update is not just another version – <i>it's the beginning of a new era</i> in the world of weather applications. Every detail has been crafted with our community and users in mind, and now it's here to make your meteorological experience even more enjoyable and personal!
+                    </p>
+                    
+                    <p style="padding-left: 3%;margin:auto; padding-right: 3%;padding-top: 3%; font-size: 40px;"><strong>New features you’ll love:</strong></p>
+                    
+                    <ul style="padding-left: 3%;margin:auto; padding-right: 3%;">
+                        <li class="lista"><strong>Switch between Favorites</strong> – Quickly jump between your most important locations.</li>
+                        
+                        <li class="lista"><strong>Clear Search History</strong> – Full control over your weather lookups.</li>
+                        
+                        <li class="lista"><strong>Toggle Clouds On/Off</strong> – Customize the appearance to suit your taste!</li>
+                        
+                        <li class="lista"><strong>Optimization</strong> – Faster and smoother than ever before.</li>
+                        
+                        <li class="lista"><strong>Dynamic Character Facial Expressions</strong> – Our mascots are now more expressive than ever!</li>
+                        
+                        <li class="lista"><strong>Interactive Dialogues</strong> – More than just data: actual conversations.</li>
+                        
+                        <li class="lista"><strong>Expandable Music Playlist</strong> – Create the perfect soundtrack to match the weather mood.</li>
+                        
+                        <li class="lista"><strong>Sound Toggle</strong> – You decide when it plays and when it doesn’t.</li>
+                        
+                        <li class="lista"><strong>Sunrise and Sunset Integration</strong> – Witness the rhythm of nature in your app.</li>
+                        
+                        <li class="lista"><strong>Dynamic Climate Factor Icons</strong> – A more visual and immersive weather experience.</li> 
+                    </ul>
+                    
+                    <p style="padding-left: 3%;margin:auto; text-align: center; padding-right: 3%;padding-top: 3%;">
+                    Huge thanks to all our users who supported us and contributed feedback to reach this milestone.  
+                    This update was made for you. Dive into the world of Cloud SCY – now richer, more colorful, and more alive than ever before!
+                    </p>
+                    
+                    <p style="padding-left: 3%;margin:auto; text-align: center; padding-right: 3%;padding-top: 3%;">
+                    Update now and feel the difference!
+                    </p>
+                    
+                    <a href="Installer.exe" download class="download-button2">Download</a>
+                                    
+                
+                
+                </div>
+        
+    </div>
+    
+<img src="Photos/Yuri.png" alt="Yuri" id="Yuri">
+<img src="Photos/Natsuki.png" alt="Nastuki" id="Natsuki">
+<img src="Photos/Cloud.png" alt="Logo" id="Logo">
+<img src="Photos/Cloud.png" alt="Logo" id="Logo">
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=ikt.weather@gmail.com&su=Bug%20Report!&body=" target="_blank" style="color: rgb(255, 159, 159); margin-left: 48%; z-index: 0; text-shadow: 5px 5px 10px; font-size: 30px; width:100%" id="Yuri">
+    <strong>Click here to contact us if you encounter any issues!</strong>
+</a>
+
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>
